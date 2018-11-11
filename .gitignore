@@ -1,0 +1,13 @@
+.next/
+.git/
+node_modules/
+*.log
+
+/.idea/
+*._.DS_Store
+*.DS_Store
+*dump.rdb
+.vscode/settings.json
+pages/playground/index.js
+.env
+package-lock.json

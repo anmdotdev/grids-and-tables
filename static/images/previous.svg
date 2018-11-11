@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="5px" height="9px" viewBox="0 0 5 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Back Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Seller-Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="User-management-1" transform="translate(-77.000000, -287.000000)" fill="#3A405B">
+            <g id="Back/Next-with-Titles" transform="translate(61.000000, 270.000000)">
+                <path d="M18.5,22.3327899 L21.6662035,19.2246469 C21.9713279,18.9251177 22.4660323,18.9251177 22.7711567,19.2246469 C23.0762811,19.524176 23.0762811,20.0098088 22.7711567,20.3093379 L19.2403959,23.7753531 C19.0396617,23.9724064 18.756877,24.0398229 18.5,23.9776027 C18.243123,24.0398229 17.9603383,23.9724064 17.7596041,23.7753531 L14.2288433,20.3093379 C13.9237189,20.0098088 13.9237189,19.524176 14.2288433,19.2246469 C14.5339677,18.9251177 15.0286721,18.9251177 15.3337965,19.2246469 L18.5,22.3327899 Z" id="Back-Icon" transform="translate(18.500000, 21.500000) rotate(-270.000000) translate(-18.500000, -21.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,7 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    ["transform-react-remove-prop-types", { "removeImport": "true" }],
+    ["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "plugins": ["react", "jsx-a11y", "import"],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to", "hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ],
+    "jsx-a11y/media-has-caption": "off",
+    "no-underscore-dangle": "off",
+    "camelcase": "off",
+    "import/no-unresolved": [2, { "ignore": ["^~"] }],
+    "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        "paths": [{ "rootPathPrefix": "~", "rootPathSuffix": "" }]
+      }
+    }
+  }
+}
