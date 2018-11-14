@@ -53,7 +53,7 @@ const getSearchResults = (search, data) => {
   return newData;
 };
 
-const getSortedResults = (sortValue, data) => {
+const getSortedResults = (sortValue, data, allData) => {
   let newData = [];
 
   switch (sortValue) {
@@ -90,7 +90,7 @@ const getSortedResults = (sortValue, data) => {
       break;
     }
     default: {
-      newData = data;
+      newData = [...allData] || [...data];
       break;
     }
   }
@@ -103,7 +103,11 @@ const handleSearch = (state, action) => {
   const { searchString } = action;
 
   let newData = getSearchResults(searchString, allData);
-  newData = getSortedResults(sortValue, newData);
+
+  if (sortValue && sortValue !== '') {
+    newData = getSortedResults(sortValue, newData);
+  }
+
   const currentData = newData.slice(0, pageSize);
 
   return {
@@ -117,11 +121,10 @@ const handleSearch = (state, action) => {
 };
 
 const handleSorting = (state, action) => {
-  const { pageSize, searchString, allData } = state;
+  const { pageSize, filteredData, allData } = state;
   const { sortValue } = action;
 
-  let newData = getSearchResults(searchString, allData);
-  newData = getSortedResults(sortValue, newData);
+  const newData = getSortedResults(sortValue, filteredData, allData);
   const currentData = newData.slice(0, pageSize);
 
   return {
