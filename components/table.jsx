@@ -31,8 +31,8 @@ const Table = ({ data }) => (
               </Group>
               <Group flex={1}>
                 <strong>
-                  {format(date, 'dd MMM, yyyy')}
-                  <em>{format(date, ' - hh:mm a')}</em>
+                  {format(new Date(date), 'dd MMM, yyyy')}
+                  <em>{format(new Date(date), ' - hh:mm a')}</em>
                 </strong>
               </Group>
             </Row>

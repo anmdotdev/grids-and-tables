@@ -23,8 +23,8 @@ const Card = ({
       <>
         <Hr />
         <div>
-          {format(date, 'dd MMM, yyyy')}
-          <em>{format(date, ' - hh:mm a')}</em>
+          {format(new Date(date), 'dd MMM, yyyy')}
+          <em>{format(new Date(date), ' - hh:mm a')}</em>
         </div>
       </>
     )}
