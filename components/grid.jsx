@@ -8,6 +8,7 @@ import Card from '../common/card';
 import Pagination from '../common/pagination';
 
 import { handlePageChange } from '../store/mock/actions';
+import { getPage, getTotal } from '../store/mock/selectors';
 
 import breakpoint from '../util/breakpoint';
 
@@ -60,7 +61,7 @@ Grid.propTypes = {
   handlePageChange: PropTypes.shape({}).isRequired,
 };
 
-const mapStateToProps = ({ mock: { page, total } }) => ({ page, total });
+const mapStateToProps = ({ mock }) => ({ page: getPage(mock), total: getTotal(mock) });
 
 export default connect(
   mapStateToProps,

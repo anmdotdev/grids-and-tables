@@ -8,22 +8,14 @@ export const getMockData = params => async (dispatch) => {
     apiType: 'get',
     path: '/mock.json',
     params,
-    onSuccess: data => ({ allData: data }),
+    onSuccess: data => ({ data }),
     onFailure: messages => ({ messages }),
   });
 };
 
-export const handleSearch = (searchString) => {
-  localStorage.setItem('search', searchString || '');
-  localStorage.setItem('page', 1);
-  return { type: syncTypes.HANDLE_SEARCH, searchString };
-};
+export const handleSearch = searchString => ({ type: syncTypes.HANDLE_SEARCH, searchString });
 
-export const handleSorting = (sortValue) => {
-  localStorage.setItem('sortValue', sortValue || '');
-  localStorage.setItem('page', 1);
-  return { type: syncTypes.HANDLE_SORTING, sortValue };
-};
+export const handleSorting = sortValue => ({ type: syncTypes.HANDLE_SORTING, sortValue });
 
 export const handlePageChange = page => ({ type: syncTypes.HANDLE_PAGE_CHANGE, page });
 

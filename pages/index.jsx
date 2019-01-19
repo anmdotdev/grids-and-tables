@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -9,43 +9,26 @@ import ActionBar from '../components/action-bar';
 import Grid from '../components/grid';
 import Table from '../components/table';
 
-import { getMockData, handleSearch, handleSorting } from '../store/mock/actions';
+import { getMockData } from '../store/mock/actions';
+import { getData } from '../store/mock/selectors';
 
-class Home extends Component {
-  static async getInitialProps({ store }) {
-    return store.dispatch(getMockData());
-  }
+const Home = ({ data }) => (
+  <>
+    <Banner />
+    <ActionBar />
+    <Grid data={data} />
+    <Table data={data} />
+  </>
+);
 
-  componentDidMount() {
-    const { handleSearch: handleSearchAction, handleSorting: handleSortingAction } = this.props;
-
-    handleSearchAction(localStorage.getItem('search') || '');
-    handleSortingAction(localStorage.getItem('sortValue') || '');
-  }
-
-  render() {
-    const { currentData } = this.props;
-
-    return (
-      <>
-        <Banner />
-        <ActionBar />
-        <Grid data={currentData} />
-        <Table data={currentData} />
-      </>
-    );
-  }
-}
-
-const mapStateToProps = ({ mock: { currentData } }) => ({ currentData });
-
-Home.propTypes = {
-  currentData: PropTypes.shape({}).isRequired,
-  handleSearch: PropTypes.func.isRequired,
-  handleSorting: PropTypes.func.isRequired,
+Home.getInitialProps = async ({ store }) => {
+  await store.dispatch(getMockData());
 };
 
-export default connect(
-  mapStateToProps,
-  { handleSearch, handleSorting },
-)(Home);
+const mapStateToProps = state => ({ data: getData(state.mock) });
+
+Home.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+};
+
+export default connect(mapStateToProps)(Home);

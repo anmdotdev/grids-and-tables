@@ -8,6 +8,7 @@ import Input from '../common/input';
 import Select from '../common/select';
 
 import { handleSearch, handleSorting } from '../store/mock/actions';
+import { getSearchString, getSortValue } from '../store/mock/selectors';
 
 import breakpoint from '../util/breakpoint';
 
@@ -61,8 +62,6 @@ const Content = styled.div`
   }
 `;
 
-const mapStateToProps = ({ mock: { searchString, sortValue } }) => ({ searchString, sortValue });
-
 ActionBar.propTypes = {
   handleSearch: PropTypes.func.isRequired,
   handleSorting: PropTypes.func.isRequired,
@@ -74,6 +73,11 @@ ActionBar.defaultProps = {
   searchString: '',
   sortValue: '',
 };
+
+const mapStateToProps = ({ mock }) => ({
+  searchString: getSearchString(mock),
+  sortValue: getSortValue(mock),
+});
 
 export default connect(
   mapStateToProps,
