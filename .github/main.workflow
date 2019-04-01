@@ -1,6 +1,6 @@
 workflow "New workflow" {
-  on = "push"
   resolves = ["ESLint"]
+  on = "pull_request"
 }
 
 action "ESLint" {
