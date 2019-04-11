@@ -1,8 +1,8 @@
 workflow "New workflow" {
-  resolves = ["ESLint"]
   on = "pull_request"
+  resolves = ["Lint Checks"]
 }
 
-action "ESLint" {
+action "Lint Checks" {
   uses = "gimenete/eslint-action@master"
 }
