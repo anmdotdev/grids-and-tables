@@ -4,5 +4,5 @@ workflow "New workflow" {
 }
 
 action "ESLint" {
-  uses = "stefanoeb/eslint-action@master"
+  uses = "gimenete/eslint-action@master"
 }
