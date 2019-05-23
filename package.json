@@ -39,7 +39,7 @@
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.15.3",
     "serve": "10.1.1",
-    "webpack-bundle-analyzer": "3.0.3",
+    "webpack-bundle-analyzer": "3.3.2",
     "webpack-bundle-size-analyzer": "3.0.0"
   }
 }
