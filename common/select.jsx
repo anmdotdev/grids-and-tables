@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -6,62 +6,61 @@ import Input from './input';
 
 import colors from '../util/colors';
 
-class Select extends Component {
-  state = { searchString: '', isOpen: false };
+const Select = ({
+  value, options, placeholder, icon, onChange,
+}) => {
+  const [searchString, setSearchString] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
-  handleOpen = () => this.setState({ isOpen: true });
+  const selected = options.find(option => option.value === value);
+  const selectedValue = (selected || {}).label || searchString;
 
-  handleClose = () => setTimeout(() => this.setState({ isOpen: false }), 200);
-
-  handleInputChange = (e) => {
-    const { onChange } = this.props;
-    this.setState({ searchString: e.target.value }, onChange);
+  const handleClose = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 200);
   };
 
-  handleSelect = (selected) => {
-    const { onChange } = this.props;
-    onChange(selected);
+  const handleInputChange = (e) => {
+    setSearchString(e.target.value);
+    onChange(e.target.value);
   };
 
-  render() {
-    const { searchString, isOpen } = this.state;
-    const {
-      value, options, placeholder, icon,
-    } = this.props;
+  const handleChange = (selectedOption) => {
+    onChange(selectedOption);
+    setSearchString('');
+  };
 
-    const selected = options.find(option => option.value === value);
+  return (
+    <Container>
+      <Input
+        value={isOpen ? searchString : selectedValue}
+        placeholder={isOpen ? selectedValue : placeholder}
+        onChange={handleInputChange}
+        onFocus={() => setIsOpen(true)}
+        onBlur={handleClose}
+        icon={icon}
+      />
+      {isOpen && (
+        <Options>
+          {options.map(({ label, value: optionValue }) => {
+            const show = !(
+              searchString
+              && searchString !== ''
+              && !label.toLowerCase().includes(searchString.toLowerCase())
+            );
 
-    return (
-      <Container>
-        <Input
-          value={(selected || {}).label || searchString}
-          placeholder={placeholder}
-          onChange={this.handleInputChange}
-          onFocus={this.handleOpen}
-          onBlur={this.handleClose}
-          icon={icon}
-        />
-        {isOpen && (
-          <Options>
-            {options.map(({ label, value: optionValue }) => {
-              const show = !(
-                searchString
-                && searchString !== ''
-                && !label.toLowerCase().includes(searchString.toLowerCase())
-              );
-
-              return show ? (
-                <Option key={optionValue} onClick={() => this.handleSelect(optionValue)}>
-                  {label}
-                </Option>
-              ) : null;
-            })}
-          </Options>
-        )}
-      </Container>
-    );
-  }
-}
+            return show ? (
+              <Option key={optionValue} onClick={() => handleChange(optionValue)}>
+                {label}
+              </Option>
+            ) : null;
+          })}
+        </Options>
+      )}
+    </Container>
+  );
+};
 
 const Container = styled.div`
   position: relative;
