@@ -16,7 +16,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "date-fns": "^2.0.0-alpha.27",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "next": "8.1.0",
     "next-redux-wrapper": "2.0.0",
     "prop-types": "15.7.2",
