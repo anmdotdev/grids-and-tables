@@ -11,6 +11,7 @@ type PaginationProps = {
 
 const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
 	const list: React.ReactNode[] = [];
+
 	list.push(
 		<Button key="previous" onClick={() => onChange(page - 1)} disabled={page === 1}>
 			<Image src="/images/previous.svg" />

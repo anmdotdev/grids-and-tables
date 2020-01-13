@@ -4,6 +4,7 @@ import App from 'next/app';
 
 import { Provider } from 'react-redux';
 
+import GlobalStyles from '../common/GlobalStyles';
 import Meta from '../common/Meta';
 
 import withStore from '../store';
@@ -36,6 +37,7 @@ class MyApp extends App<AppProps> {
 					author="Anmol"
 					url="/"
 				/>
+				<GlobalStyles />
 				<Component {...pageProps} />
 			</Provider>
 		);

@@ -35,7 +35,14 @@ const Grid: React.FC<GridProps> = ({ data }) => {
 				</Content>
 			)}
 			{(data ?? []).length === 0 && <h3>No Data Available for the Selected Settings</h3>}
-			<Pagination page={page} total={total} onChange={(v) => dispatch(handlePageChange(v))} />
+			<Pagination
+				page={page}
+				total={total}
+				onChange={(v) => {
+					console.log('change', v);
+					dispatch(handlePageChange(v));
+				}}
+			/>
 		</Container>
 	);
 };
