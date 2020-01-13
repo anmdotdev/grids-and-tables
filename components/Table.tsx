@@ -41,7 +41,7 @@ const Table: React.FC<TableProps> = ({ data }) => (
 								</Group>
 								<Group flex={1}>
 									<strong>
-										{dayjs(date).format('dd MMM, yyyy')}
+										{dayjs(date).format('DD MMM, YYYY')}
 										<em>{dayjs(date).format(' - hh:mm a')}</em>
 									</strong>
 								</Group>

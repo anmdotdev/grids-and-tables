@@ -8,10 +8,10 @@ import ActionBar from '../components/ActionBar';
 import Grid from '../components/Grid';
 import Table from '../components/Table';
 
-import { getMockData, handleSearch, handleSorting } from '../store/mock/actions';
+import { getCards, handleSearch, handleSorting } from '../store/cards/actions';
 
 const Home = () => {
-	const { currentData } = useSelector((state) => state.mock);
+	const { currentData } = useSelector((state) => state.cards);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -29,6 +29,6 @@ const Home = () => {
 	);
 };
 
-Home.getInitialProps = ({ store }) => store.dispatch(getMockData());
+Home.getInitialProps = ({ store }) => store.dispatch(getCards());
 
 export default Home;

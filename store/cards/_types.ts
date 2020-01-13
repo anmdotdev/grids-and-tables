@@ -1,7 +1,7 @@
-const reducerName = 'mock';
+const reducerName = 'cards';
 
 export const apiTypes = {
-	GET_MOCK_DATA: `${reducerName}/Get Mock Data`,
+	GET_CARDS: `${reducerName}/Get Cards Data`,
 };
 
 export const syncTypes = {

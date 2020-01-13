@@ -19,7 +19,7 @@ const initialState = {
 	messages: {},
 };
 
-const getMockData = (state, action) => {
+const getCards = (state, action) => {
 	const { pageSize } = state;
 	const { apiStatus, data } = action;
 	const { allData } = data || {};
@@ -156,8 +156,8 @@ const handlePageChange = (state, action) => {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case apiTypes.GET_MOCK_DATA:
-			return getMockData(state, action);
+		case apiTypes.GET_CARDS:
+			return getCards(state, action);
 
 		case syncTypes.HANDLE_SEARCH:
 			return handleSearch(state, action);

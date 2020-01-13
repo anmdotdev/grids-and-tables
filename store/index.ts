@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 import withRedux from './withRedux';
 
-import mock from './mock';
+import cards from './cards';
 import route from './route';
 
 const enhancers = [];
@@ -26,7 +26,7 @@ const composeWithDevTools =
 const composedEnhancers = composeWithDevTools(applyMiddleware(...middleware), ...enhancers);
 
 const initStore = (initialState = {}) => {
-	const rootReducer = combineReducers({ mock, route });
+	const rootReducer = combineReducers({ cards, route });
 	return createStore(rootReducer, initialState, composedEnhancers);
 };
 

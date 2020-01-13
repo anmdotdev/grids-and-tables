@@ -1,12 +1,12 @@
 import { apiRequest } from '../../util/redux-utils';
 import { apiTypes, syncTypes } from './_types';
 
-export const getMockData = (params?) => async (dispatch) => {
+export const getCards = (params?) => async (dispatch) => {
 	await apiRequest({
 		dispatch,
-		actionType: apiTypes.GET_MOCK_DATA,
+		actionType: apiTypes.GET_CARDS,
 		apiType: 'get',
-		path: '/mock.json',
+		path: '/cards.json',
 		params,
 		onSuccess: (data) => ({ allData: data }),
 		onFailure: (messages) => ({ messages }),

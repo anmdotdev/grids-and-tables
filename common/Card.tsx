@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ name, image, description, date }) => (
 			<>
 				<Hr />
 				<div>
-					{dayjs(date).format('dd MMM, yyyy')}
+					{dayjs(date).format('DD MMM, YYYY')}
 					<em>{dayjs(date).format(' - hh:mm a')}</em>
 				</div>
 			</>

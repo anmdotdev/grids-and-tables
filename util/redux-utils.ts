@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://anmolmahatpurkar-fb5e5.firebaseio.com';
+axios.defaults.baseURL = 'https://playground-46566.firebaseio.com/';
 
 export const API_STATUS = {
 	INITIATED: 'INITIATED',

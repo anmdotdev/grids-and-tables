@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Input from '../common/Input';
 import Select from '../common/Select';
 
-import { handleSearch, handleSorting } from '../store/mock/actions';
+import { handleSearch, handleSorting } from '../store/cards/actions';
 
 import breakpoint from '../util/breakpoint';
 
@@ -18,7 +18,7 @@ const sortOptions = [
 ];
 
 const ActionBar = () => {
-	const { searchString, sortValue } = useSelector((state) => state.mock);
+	const { searchString, sortValue } = useSelector((state) => state.cards);
 	const dispatch = useDispatch();
 
 	return (
