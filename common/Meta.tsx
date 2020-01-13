@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Head from 'next/head';
+
 type MetaProps = {
 	title: string;
 	description: string;
@@ -8,7 +10,9 @@ type MetaProps = {
 };
 
 const Meta: React.FC<MetaProps> = ({ title, description, author, url }) => (
-	<>
+	<Head>
+		<title>{title}</title>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 		<meta key="title" name="title" content={title || ''} />
@@ -26,9 +30,10 @@ const Meta: React.FC<MetaProps> = ({ title, description, author, url }) => (
 		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
 		<link rel="manifest" href="/images/site.webmanifest" />
 		<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#6c5ac0" />
+
 		<meta name="msapplication-TileColor" content="#603cba" />
 		<meta name="theme-color" content="#ffffff" />
-	</>
+	</Head>
 );
 
 export default Meta;

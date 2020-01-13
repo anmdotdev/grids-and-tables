@@ -1,9 +1,10 @@
 import React from 'react';
 
-import App, { Container } from 'next/app';
-import Head from 'next/head';
+import App from 'next/app';
 
 import { Provider } from 'react-redux';
+
+import Meta from '../common/Meta';
 
 import withStore from '../store';
 import { setStoreState as setRouteStoreState } from '../store/route/actions';
@@ -28,14 +29,15 @@ class MyApp extends App<AppProps> {
 		const { Component, pageProps = {}, store } = this.props;
 
 		return (
-			<Container>
-				<Head>
-					<title>Grids and Tables - Responsive app built with React, NextJS</title>
-				</Head>
-				<Provider store={store}>
-					<Component {...pageProps} />
-				</Provider>
-			</Container>
+			<Provider store={store}>
+				<Meta
+					title="Grids and Tables - Responsive app built with React, NextJS"
+					description="Grids and Tables - Responsive app built with React, NextJS"
+					author="Anmol"
+					url="/"
+				/>
+				<Component {...pageProps} />
+			</Provider>
 		);
 	}
 }

@@ -54,7 +54,7 @@ const getSearchResults = (search, data) => {
 };
 
 const getSortedResults = (sortValue, data, allData?) => {
-	let newData = [];
+	let newData;
 
 	switch (sortValue) {
 		case 'title_ascending': {

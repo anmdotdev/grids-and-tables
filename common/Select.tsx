@@ -8,9 +8,9 @@ import colors from '../util/colors';
 
 type SelectOption = { value: string; label: string };
 
-type SelectOption = {
+type SelectProps = {
 	value: string;
-	options: [Option];
+	options: SelectOption[];
 	placeholder: string;
 	icon: string;
 	onChange: Function;

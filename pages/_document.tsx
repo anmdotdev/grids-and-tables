@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Document from 'next/document';
+import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -27,5 +27,20 @@ export default class MyDocument extends Document {
 		} finally {
 			sheet.seal();
 		}
+	}
+
+	render() {
+		return (
+			<html lang="en">
+				<Head>
+					<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+					<link href="/css/main.css" rel="stylesheet" />
+				</Head>
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</html>
+		);
 	}
 }

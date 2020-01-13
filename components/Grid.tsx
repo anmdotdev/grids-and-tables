@@ -18,7 +18,7 @@ type DataItem = {
 };
 
 type GridProps = {
-	data?: [DataItem];
+	data?: DataItem[];
 };
 
 const Grid: React.FC<GridProps> = ({ data }) => {

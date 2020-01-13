@@ -10,7 +10,7 @@ type PaginationProps = {
 };
 
 const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
-	const list = [];
+	const list: React.ReactNode[] = [];
 	list.push(
 		<Button key="previous" onClick={() => onChange(page - 1)} disabled={page === 1}>
 			<Image src="/images/previous.svg" />
@@ -72,11 +72,13 @@ const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
 			);
 		}
 	}
+
 	list.push(
 		<Button key="next" onClick={() => onChange(page + 1)} disabled={page === total}>
 			<Image src="/images/next.svg" />
 		</Button>,
 	);
+
 	return total && total > 1 ? <Container>{list}</Container> : null;
 };
 

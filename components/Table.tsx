@@ -16,7 +16,7 @@ type DataItem = {
 };
 
 type TableProps = {
-	data?: [DataItem];
+	data?: DataItem[];
 };
 
 const Table: React.FC<TableProps> = ({ data }) => (
