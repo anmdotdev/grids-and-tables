@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="5px" height="9px" viewBox="0 0 5 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
-    <title>Next Icon</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Rate-Management" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Frieght-dashboard" transform="translate(-285.000000, -1047.000000)" fill="#3A405B">
-            <g id="Group-5" transform="translate(61.000000, 249.000000)">
-                <g id="Back/Next-with-Titles" transform="translate(0.000000, 781.000000)">
-                    <path d="M226.5,22.3327899 L229.666204,19.2246469 C229.971328,18.9251177 230.466032,18.9251177 230.771157,19.2246469 C231.076281,19.524176 231.076281,20.0098088 230.771157,20.3093379 L227.240396,23.7753531 C227.039662,23.9724064 226.756877,24.0398229 226.5,23.9776027 C226.243123,24.0398229 225.960338,23.9724064 225.759604,23.7753531 L222.228843,20.3093379 C221.923719,20.0098088 221.923719,19.524176 222.228843,19.2246469 C222.533968,18.9251177 223.028672,18.9251177 223.333796,19.2246469 L226.5,22.3327899 Z" id="Next-Icon" transform="translate(226.500000, 21.500000) rotate(-90.000000) translate(-226.500000, -21.500000) "></path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="5" height="9" version="1.1" viewBox="0 0 5 9"><title>Next Icon</title><desc>Created with Sketch.</desc><g id="Rate-Management" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="Frieght-dashboard" fill="#3A405B" transform="translate(-285.000000, -1047.000000)"><g id="Group-5" transform="translate(61.000000, 249.000000)"><g id="Back/Next-with-Titles" transform="translate(0.000000, 781.000000)"><path id="Next-Icon" d="M226.5,22.3327899 L229.666204,19.2246469 C229.971328,18.9251177 230.466032,18.9251177 230.771157,19.2246469 C231.076281,19.524176 231.076281,20.0098088 230.771157,20.3093379 L227.240396,23.7753531 C227.039662,23.9724064 226.756877,24.0398229 226.5,23.9776027 C226.243123,24.0398229 225.960338,23.9724064 225.759604,23.7753531 L222.228843,20.3093379 C221.923719,20.0098088 221.923719,19.524176 222.228843,19.2246469 C222.533968,18.9251177 223.028672,18.9251177 223.333796,19.2246469 L226.5,22.3327899 Z" transform="translate(226.500000, 21.500000) rotate(-90.000000) translate(-226.500000, -21.500000)"/></g></g></g></g></svg>
