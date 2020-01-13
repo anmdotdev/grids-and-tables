@@ -6,26 +6,36 @@ import useBoundedClick from '../hooks/useBoundedClick';
 
 import colors from '../util/colors';
 
-const Select = ({ value, options, placeholder, icon, onChange }) => {
+type SelectOption = { value: string; label: string };
+
+type SelectOption = {
+	value: string;
+	options: [Option];
+	placeholder: string;
+	icon: string;
+	onChange: Function;
+};
+
+const Select: React.FC<SelectProps> = ({ value, options, placeholder, icon, onChange }) => {
 	const [searchString, setSearchString] = useState('');
 	const [isOpen, setIsOpen] = useState(false);
 
 	const selected = options.find((option) => option.value === value);
 	const selectedValue = (selected || {}).label || searchString;
 
-	const selectRef = useBoundedClick({
+	const selectRef = useBoundedClick<HTMLDivElement>({
 		onOuterClick(e) {
 			e.stopPropagation();
 			setIsOpen(false);
 		},
 	});
 
-	const handleInputChange = (e) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchString(e.target.value);
 		onChange(e.target.value);
 	};
 
-	const handleChange = (selectedOption) => {
+	const handleChange = (selectedOption: string) => {
 		onChange(selectedOption);
 		setSearchString('');
 		setIsOpen(false);
@@ -34,6 +44,7 @@ const Select = ({ value, options, placeholder, icon, onChange }) => {
 	return (
 		<Container ref={selectRef}>
 			<Input
+				type="text"
 				value={isOpen ? searchString : selectedValue}
 				placeholder={isOpen ? selectedValue : placeholder}
 				onChange={handleInputChange}

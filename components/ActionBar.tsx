@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import Input from '../common/input';
-import Select from '../common/select';
+import Input from '../common/Input';
+import Select from '../common/Select';
 
 import { handleSearch, handleSorting } from '../store/mock/actions';
 
@@ -18,31 +17,31 @@ const sortOptions = [
 	{ label: 'By Date - Descending', value: 'date_descending' },
 ];
 
-const ActionBar = ({
-	searchString,
-	sortValue,
-	handleSearch: handleSearchAction,
-	handleSorting: handleSortingAction,
-}) => (
-	<Container>
-		<Content>
-			<Input
-				type="text"
-				value={searchString}
-				onChange={(e) => handleSearchAction(e.target.value)}
-				placeholder="Type and Search..."
-				icon="/static/images/search.svg"
-			/>
-			<Select
-				value={sortValue}
-				onChange={handleSortingAction}
-				placeholder="Sort By..."
-				options={sortOptions}
-				icon="/static/images/sort.svg"
-			/>
-		</Content>
-	</Container>
-);
+const ActionBar = () => {
+	const { searchString, sortValue } = useSelector((state) => state.mock);
+	const dispatch = useDispatch();
+
+	return (
+		<Container>
+			<Content>
+				<Input
+					type="text"
+					value={searchString}
+					onChange={(e) => dispatch(handleSearch(e.target.value))}
+					placeholder="Type and Search..."
+					icon="/images/search.svg"
+				/>
+				<Select
+					value={sortValue}
+					onChange={(v) => dispatch(handleSorting(v))}
+					placeholder="Sort By..."
+					options={sortOptions}
+					icon="/images/sort.svg"
+				/>
+			</Content>
+		</Container>
+	);
+};
 
 const Container = styled.div`
 	display: flex;
@@ -61,18 +60,4 @@ const Content = styled.div`
 	}
 `;
 
-const mapStateToProps = ({ mock: { searchString, sortValue } }) => ({ searchString, sortValue });
-
-ActionBar.propTypes = {
-	handleSearch: PropTypes.func.isRequired,
-	handleSorting: PropTypes.func.isRequired,
-	searchString: PropTypes.string,
-	sortValue: PropTypes.string,
-};
-
-ActionBar.defaultProps = {
-	searchString: '',
-	sortValue: '',
-};
-
-export default connect(mapStateToProps, { handleSearch, handleSorting })(ActionBar);
+export default ActionBar;

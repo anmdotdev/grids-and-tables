@@ -5,10 +5,12 @@ import Head from 'next/head';
 
 import { Provider } from 'react-redux';
 
-import initStore from '../store';
+import withStore from '../store';
 import { setStoreState as setRouteStoreState } from '../store/route/actions';
 
-class MyApp extends App {
+type AppProps = { store: any };
+
+class MyApp extends App<AppProps> {
 	static async getInitialProps({ Component, ctx }) {
 		const { store, pathname, asPath, query = {} } = ctx;
 
@@ -17,13 +19,8 @@ class MyApp extends App {
 		const initialProps = Component.getInitialProps
 			? await Component.getInitialProps({ ...ctx })
 			: {};
-		const pageProps = {
-			pathname,
-			query,
-			asPath,
-			...(initialProps || {}),
-		};
 
+		const pageProps = { pathname, query, asPath, ...(initialProps || {}) };
 		return { pageProps };
 	}
 
@@ -43,4 +40,4 @@ class MyApp extends App {
 	}
 }
 
-export default withRedux(initStore)(MyApp);
+export default withStore(MyApp);

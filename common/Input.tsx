@@ -3,7 +3,16 @@ import styled from 'styled-components';
 
 import colors from '../util/colors';
 
-const Input = ({ icon, ...props }) => (
+type InputProps = {
+	type: string;
+	value: string;
+	placeholder: string;
+	icon?: string;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+};
+
+const Input: React.FC<InputProps> = ({ icon, ...props }) => (
 	<Container>
 		<InputField {...props} />
 		{icon && <Icon src={icon} />}

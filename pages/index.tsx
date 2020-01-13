@@ -1,41 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Banner from '../components/banner';
-import ActionBar from '../components/action-bar';
+import HeroBanner from '../components/HeroBanner';
+import ActionBar from '../components/ActionBar';
 
-import Grid from '../components/grid';
-import Table from '../components/table';
+import Grid from '../components/Grid';
+import Table from '../components/Table';
 
 import { getMockData, handleSearch, handleSorting } from '../store/mock/actions';
 
-class Home extends Component {
-	static async getInitialProps({ store }) {
-		return store.dispatch(getMockData());
-	}
+const Home = () => {
+	const { currentData } = useSelector((state) => state.mock);
+	const dispatch = useDispatch();
 
-	componentDidMount() {
-		const { handleSearch: handleSearchAction, handleSorting: handleSortingAction } = this.props;
+	useEffect(() => {
+		dispatch(handleSearch(localStorage.getItem('search') || ''));
+		dispatch(handleSorting(localStorage.getItem('sortValue') || ''));
+	}, []);
 
-		handleSearchAction(localStorage.getItem('search') || '');
-		handleSortingAction(localStorage.getItem('sortValue') || '');
-	}
+	return (
+		<>
+			<HeroBanner />
+			<ActionBar />
+			<Grid data={currentData} />
+			<Table data={currentData} />
+		</>
+	);
+};
 
-	render() {
-		const { currentData } = this.props;
+Home.getInitialProps = ({ store }) => store.dispatch(getMockData());
 
-		return (
-			<>
-				<Banner />
-				<ActionBar />
-				<Grid data={currentData} />
-				<Table data={currentData} />
-			</>
-		);
-	}
-}
-
-const mapStateToProps = ({ mock: { currentData } }) => ({ currentData });
-
-export default connect(mapStateToProps, { handleSearch, handleSorting })(Home);
+export default Home;

@@ -1,43 +1,56 @@
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 
-import Shimmer from '../common/shimmer';
+import styled from 'styled-components';
+import dayjs from 'dayjs';
+
+import Skeleton from '../common/Skeleton';
 
 import colors from '../util/colors';
 import breakpoint from '../util/breakpoint';
 
-const Table = ({ data }) => (
+type DataItem = {
+	name?: string;
+	image?: string;
+	description?: string;
+	date?: string;
+};
+
+type TableProps = {
+	data?: [DataItem];
+};
+
+const Table: React.FC<TableProps> = ({ data }) => (
 	<Container>
-		<Content>
-			{data.map((row, id) => {
-				const { name, description, image, date } = row;
-				return (
-					<Row key={id} className="bordered">
-						<Group flex={2}>
-							<Shimmer height="100px">
-								<Image src={image} />
-							</Shimmer>
-						</Group>
-						<Row flex={9} className="tab-vertical">
-							<Group flex={3}>
-								<h3>{name}</h3>
+		{data && (
+			<Content>
+				{data.map((row, id) => {
+					const { name, description, image, date } = row;
+					return (
+						<Row key={id} className="bordered">
+							<Group flex={2}>
+								<Skeleton height="100px">
+									<Image src={image} />
+								</Skeleton>
 							</Group>
-							<Group flex={5}>
-								<div>{description}</div>
-							</Group>
-							<Group flex={1}>
-								<strong>
-									{format(new Date(date), 'dd MMM, yyyy')}
-									<em>{format(new Date(date), ' - hh:mm a')}</em>
-								</strong>
-							</Group>
+							<Row flex={9} className="tab-vertical">
+								<Group flex={3}>
+									<h3>{name}</h3>
+								</Group>
+								<Group flex={5}>
+									<div>{description}</div>
+								</Group>
+								<Group flex={1}>
+									<strong>
+										{dayjs(date).format('dd MMM, yyyy')}
+										<em>{dayjs(date).format(' - hh:mm a')}</em>
+									</strong>
+								</Group>
+							</Row>
 						</Row>
-					</Row>
-				);
-			})}
-		</Content>
+					);
+				})}
+			</Content>
+		)}
 	</Container>
 );
 
@@ -62,8 +75,10 @@ const Content = styled.div`
 	}
 `;
 
+type FlexProps = { flex?: number };
+
 const Row = styled.div`
-	flex: ${({ flex }) => flex || 'none'};
+	flex: ${({ flex }: FlexProps) => flex || 'none'};
 	width: 100%;
 	max-width: 1800px;
 	display: flex;
@@ -99,23 +114,21 @@ const Row = styled.div`
 `;
 
 const Group = styled.div`
-	flex: ${({ flex }) => flex || 'none'};
+	flex: ${({ flex }: FlexProps) => flex || 'none'};
 	padding: 0px 15px;
 	width: 100%;
 `;
+
+type ImageProps = { src?: string };
 
 const Image = styled.div`
   width: 100%;
   height: 100%;
 
-  background-image: url('${({ src }) => src || ''}');
+  background-image: url('${({ src }: ImageProps) => src || ''}');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 `;
-
-Table.propTypes = {
-	data: PropTypes.shape({}).isRequired,
-};
 
 export default Table;

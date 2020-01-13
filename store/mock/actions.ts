@@ -1,7 +1,7 @@
 import { apiRequest } from '../../util/redux-utils';
 import { apiTypes, syncTypes } from './_types';
 
-export const getMockData = (params) => async (dispatch) => {
+export const getMockData = (params?) => async (dispatch) => {
 	await apiRequest({
 		dispatch,
 		actionType: apiTypes.GET_MOCK_DATA,
@@ -15,13 +15,13 @@ export const getMockData = (params) => async (dispatch) => {
 
 export const handleSearch = (searchString) => {
 	localStorage.setItem('search', searchString || '');
-	localStorage.setItem('page', 1);
+	localStorage.setItem('page', '1');
 	return { type: syncTypes.HANDLE_SEARCH, searchString };
 };
 
 export const handleSorting = (sortValue) => {
 	localStorage.setItem('sortValue', sortValue || '');
-	localStorage.setItem('page', 1);
+	localStorage.setItem('page', '1');
 	return { type: syncTypes.HANDLE_SORTING, sortValue };
 };
 

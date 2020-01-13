@@ -17,6 +17,7 @@
 		"no-cond-assign": "off",
 		"no-plusplus": "off",
 		"no-tabs": "off",
+		"no-param-reassign": "off",
 		"eqeqeq": "warn",
 		"camelcase": "off",
 		"import/extensions": "off",
@@ -29,6 +30,7 @@
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
 		"react/static-property-placement": "off",
+		"react/prop-types": "off",
 		"jsx-a11y/mouse-events-have-key-events": "off",
 		"jsx-a11y/media-has-caption": "off",
 		"jsx-a11y/anchor-is-valid": "off"

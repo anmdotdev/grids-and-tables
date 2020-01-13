@@ -1,4 +1,4 @@
-import { compareAsc, compareDesc } from 'date-fns';
+import dayjs from 'dayjs';
 import { API_STATUS } from '../../util/redux-utils';
 import { apiTypes, syncTypes } from './_types';
 
@@ -53,7 +53,7 @@ const getSearchResults = (search, data) => {
 	return newData;
 };
 
-const getSortedResults = (sortValue, data, allData) => {
+const getSortedResults = (sortValue, data, allData?) => {
 	let newData = [];
 
 	switch (sortValue) {
@@ -83,18 +83,20 @@ const getSortedResults = (sortValue, data, allData) => {
 		}
 		case 'date_ascending': {
 			newData = data.sort((first, second) =>
-				compareAsc(new Date(first.date), new Date(second.date)),
+				dayjs(first?.date).isAfter(dayjs(second?.data)) ? 1 : -1,
 			);
+
 			break;
 		}
 		case 'date_descending': {
 			newData = data.sort((first, second) =>
-				compareDesc(new Date(first.date), new Date(second.date)),
+				dayjs(first?.date).isAfter(dayjs(second?.data)) ? -1 : 1,
 			);
+
 			break;
 		}
 		default: {
-			newData = [...allData] || [...data];
+			newData = allData ? [...allData] : [...data];
 			break;
 		}
 	}
@@ -156,14 +158,19 @@ export default (state = initialState, action) => {
 	switch (action.type) {
 		case apiTypes.GET_MOCK_DATA:
 			return getMockData(state, action);
+
 		case syncTypes.HANDLE_SEARCH:
 			return handleSearch(state, action);
+
 		case syncTypes.HANDLE_SORTING:
 			return handleSorting(state, action);
+
 		case syncTypes.HANDLE_PAGE_CHANGE:
 			return handlePageChange(state, action);
+
 		case syncTypes.SET_STORE_STATE:
 			return { ...state, ...action.data };
+
 		default:
 			return state;
 	}

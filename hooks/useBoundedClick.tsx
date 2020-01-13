@@ -1,16 +1,23 @@
 import { useRef, useEffect } from 'react';
 
-const useBoundedClick = (options = {}) => {
-	const { onOuterClick = () => {}, onInnerClick = () => {} } = options;
+type BoundedOptions = {
+	onOuterClick?: Function;
+	onInnerClick?: Function;
+};
 
-	const ref = useRef();
+const useBoundedClick = <T extends HTMLElement>(options: BoundedOptions) => {
+	const { onOuterClick, onInnerClick } = options || {};
+
+	const ref = useRef() as React.RefObject<T>;
 
 	const onClickAnywhere = (e) => {
 		if (ref && ref.current) {
 			const insideClick = ref.current.contains(e.target);
 			if (insideClick) {
-				onInnerClick(e);
-			} else {
+				if (onInnerClick) {
+					onInnerClick(e);
+				}
+			} else if (onOuterClick) {
 				onOuterClick(e);
 			}
 		}
