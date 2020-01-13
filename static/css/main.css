@@ -1,18 +1,18 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *:before,
 *:after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 body {
-  font-family: Lato, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  width: auto !important;
-  margin: 0;
-  box-sizing: border-box;
-  color: #202020;
+	font-family: Lato, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	width: auto !important;
+	margin: 0;
+	box-sizing: border-box;
+	color: #202020;
 }
 
 h1,
@@ -23,5 +23,5 @@ h5,
 h6,
 b,
 strong {
-  font-weight: 700;
+	font-weight: 700;
 }
