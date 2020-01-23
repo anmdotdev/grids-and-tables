@@ -6,7 +6,7 @@ import colors from '../util/colors';
 const HeroBanner = () => (
 	<Container>
 		<h1>Grids and Tables</h1>
-		<h3>Responsive app built with React &amp; NextJS.</h3>
+		<h3>Responsive app built with React, TypeScript &amp; NextJS.</h3>
 	</Container>
 );
 

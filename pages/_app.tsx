@@ -32,9 +32,9 @@ class MyApp extends App<AppProps> {
 		return (
 			<Provider store={store}>
 				<Meta
-					title="Grids and Tables - Responsive app built with React, NextJS"
-					description="Grids and Tables - Responsive app built with React, NextJS"
-					author="Anmol"
+					title="Grids and Tables - Responsive app built with React, TS, NextJS"
+					description="A responsive grids and tables web application, built using React, TypeScript, NextJS, Redux, and Styled Components."
+					author="Anmol Mahatpurkar"
 					url="/"
 				/>
 				<GlobalStyles />

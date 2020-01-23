@@ -13,7 +13,9 @@
 			"type": "image/png"
 		}
 	],
-	"theme_color": "#ffffff",
+	"theme_color": "#603cba",
 	"background_color": "#ffffff",
-	"display": "standalone"
+	"description": "A responsive web application, built using React, TypeScript, NextJS, Redux, and Styled Components.",
+	"display": "fullscreen",
+	"start_url": "/"
 }
