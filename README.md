@@ -1,8 +1,6 @@
 # Grids and Tables - Responsive App
 
-A responsive grids and tables web application, built using React, TypeScript, NextJS, Redux, and Styled Components.
-
-Live Demo: 🚀 https://grids-and-tables.now.sh
+A responsive grids and tables web application, built using React, TypeScript, NextJS, Redux, and Styled Components. 🚀 https://grids-and-tables.now.sh
 
 - 📱 **Responsive** - Works on mobile, tablets and desktops.
 - ✨ **Server Side rendering** of data fetched from a REST API.
