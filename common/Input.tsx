@@ -15,7 +15,7 @@ type InputProps = {
 const Input: React.FC<InputProps> = ({ icon, ...props }) => (
 	<Container>
 		<InputField {...props} />
-		{icon && <Icon src={icon} />}
+		{icon && <Icon src={icon} aria-hidden="true" />}
 	</Container>
 );
 

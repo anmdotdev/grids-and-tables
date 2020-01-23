@@ -52,7 +52,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
 				onClick={() => onChange(page - 1)}
 				disabled={page === 1}
 			>
-				<Image src="/images/previous.svg" />
+				<Image src="/images/previous.svg" alt="Previous Page Icon" />
 			</Button>
 
 			{pages.map((currentPage, id) =>
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
 				onClick={() => onChange(page + 1)}
 				disabled={page === total}
 			>
-				<Image src="/images/next.svg" />
+				<Image src="/images/next.svg" alt="Next Page Icon" />
 			</Button>
 		</Container>
 	) : null;
