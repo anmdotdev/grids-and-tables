@@ -7,7 +7,8 @@ A responsive grids and tables app built using React, Redux, NextJS and Styled Co
 - 📙 Features a client side, regex based **search.**
 - 🚩 Features client side **pagination** of data.
 - 📅 Features client side **sorting** of data - Based on **Title and Date**.
-- 📦 **Persist** last *Searched* and *Sorting* Preferences on the Client Side.
+- 📦 **Persist** last **Searched** and **Sorting Preferences** on the Client Side. Try refreshing the page, the state stays maintained.
+- 🚀 **Continous Deployment** with [Now.sh](http://now.sh/)
 - 📜 Written in **TypeScript.**
 
 ## Getting Started
