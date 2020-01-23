@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -6,81 +7,83 @@ import colors from '../util/colors';
 type PaginationProps = {
 	page: number;
 	total: number;
-	onChange: Function;
+	onChange: (page?: number | string) => void;
 };
 
 const Pagination: React.FC<PaginationProps> = ({ page, total, onChange }) => {
-	const list: React.ReactNode[] = [];
-
-	list.push(
-		<Button key="previous" onClick={() => onChange(page - 1)} disabled={page === 1}>
-			<Image src="/images/previous.svg" />
-		</Button>,
-	);
+	const pages: [(number | string)?] = [];
 
 	if (total <= 7) {
-		for (let i = 0; i < total; i += 1) {
-			list.push(
-				<Button className={page === i + 1 ? 'active' : ''} onClick={() => onChange(i + 1)} key={i}>
-					{i + 1}
-				</Button>,
-			);
+		for (let i = 0; i < total; i++) {
+			pages.push(i + 1);
 		}
 	} else {
-		for (let j = 0; j < 3; j += 1) {
-			list.push(
-				<Button key={j} onClick={() => onChange(j + 1)} className={page === j + 1 ? 'active' : ''}>
-					{j + 1}
-				</Button>,
-			);
+		if (page > 4) {
+			pages.push('...');
 		}
-		if (page <= 5) {
-			[4, 5].forEach((item) =>
-				list.push(
-					<Button
-						key={item}
-						onClick={() => onChange(item)}
-						className={page === item ? 'active' : ''}
-					>
-						{item}
-					</Button>,
-				),
-			);
+
+		let midLength;
+
+		if (page > 4 && total - page > 3) {
+			midLength = 3;
+		} else if (total - page > 3) {
+			midLength = 5;
 		} else {
-			list.push(
-				<Button key="dot_1" disabled>
-					...
-				</Button>,
-			);
-			list.push(
-				<Button key={page} onClick={() => onChange(page)} className="active">
-					{page}
-				</Button>,
-			);
+			midLength = total;
 		}
-		if (page < total - 1) {
-			list.push(
-				<Button key="dot_2" disabled>
-					...
-				</Button>,
-			);
+
+		for (let i = page - 1; i < midLength; i++) {
+			pages.push(i + 1);
 		}
-		if (page !== total) {
-			list.push(
-				<Button key={total} onClick={() => onChange(total)}>
-					{total}
-				</Button>,
-			);
+
+		if (total - page > 3) {
+			pages.push('...');
 		}
+
+		pages.push(total);
 	}
 
-	list.push(
-		<Button key="next" onClick={() => onChange(page + 1)} disabled={page === total}>
-			<Image src="/images/next.svg" />
-		</Button>,
-	);
+	return total && total > 1 ? (
+		<Container>
+			<Button
+				key="previous"
+				role="button"
+				aria-label="Previous Page"
+				onClick={() => onChange(page - 1)}
+				disabled={page === 1}
+			>
+				<Image src="/images/previous.svg" />
+			</Button>
 
-	return total && total > 1 ? <Container>{list}</Container> : null;
+			{pages.map((currentPage, id) =>
+				currentPage === '...' ? (
+					<Button key={`page_${currentPage}_${id}`} disabled>
+						...
+					</Button>
+				) : (
+					<Button
+						key={`page_${currentPage}`}
+						role="button"
+						aria-label={`Page ${currentPage}`}
+						onClick={() => onChange(currentPage)}
+						className={page === currentPage ? 'active' : ''}
+					>
+						{currentPage}
+					</Button>
+				),
+			)}
+
+			<Button
+				key="next"
+				role="button"
+				aria-label="Next Page"
+				onClick={() => onChange(page + 1)}
+				disabled={page === total}
+			>
+				<Image src="/images/next.svg" />
+			</Button>
+		</Container>
+	) : null;
 };
 
 const Container = styled.div`

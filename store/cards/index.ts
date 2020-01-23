@@ -82,16 +82,22 @@ const getSortedResults = (sortValue, data, allData?) => {
 			break;
 		}
 		case 'date_ascending': {
-			newData = data.sort((first, second) =>
-				dayjs(first?.date).isAfter(dayjs(second?.data)) ? 1 : -1,
-			);
+			newData = data.sort((first, second) => {
+				const firstDate = dayjs(first?.date);
+				const secondDate = dayjs(second?.date);
+
+				return firstDate.diff(secondDate);
+			});
 
 			break;
 		}
 		case 'date_descending': {
-			newData = data.sort((first, second) =>
-				dayjs(first?.date).isAfter(dayjs(second?.data)) ? -1 : 1,
-			);
+			newData = data.sort((first, second) => {
+				const firstDate = dayjs(first?.date);
+				const secondDate = dayjs(second?.date);
+
+				return secondDate.diff(firstDate);
+			});
 
 			break;
 		}

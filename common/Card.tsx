@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import dayjs from 'dayjs';
 
@@ -14,26 +15,28 @@ type CardProps = {
 	date?: string;
 };
 
-const Card: React.FC<CardProps> = ({ name, image, description, date }) => (
-	<Container>
-		{image && (
-			<Skeleton height="180px">
-				<Image src={image} />
-			</Skeleton>
-		)}
-		{name && <h2>{name}</h2>}
-		{description && <div>{description}</div>}
-		{date && (
-			<>
-				<Hr />
-				<div>
-					{dayjs(date).format('DD MMM, YYYY')}
-					<em>{dayjs(date).format(' - hh:mm a')}</em>
-				</div>
-			</>
-		)}
-	</Container>
-);
+const Card: React.FC<CardProps> = ({ name, image, description, date }) => {
+	return (
+		<Container>
+			{image && (
+				<Skeleton height="180px">
+					<Image src={image} />
+				</Skeleton>
+			)}
+			{name && <h2>{name}</h2>}
+			{description && <div>{description}</div>}
+			{date && (
+				<>
+					<Hr />
+					<div>
+						{dayjs(date).format('DD MMM, YYYY')}
+						<em>{dayjs(date).format(' - hh:mm a')}</em>
+					</div>
+				</>
+			)}
+		</Container>
+	);
+};
 
 const Container = styled.div`
 	max-width: calc(100% / 4);

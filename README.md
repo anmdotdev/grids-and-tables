@@ -1,12 +1,18 @@
 # Grids and Tables - Responsive App
 
-A responsive grids and tables app built using React, Redux, NextJS and Styled Components. With server-side rendering of data.
+A responsive grids and tables app built using React, Redux, NextJS and Styled Components.
+
+- Responsive - Works on mobile, tablets and desktops.
+- Server Side rendering of data fetched from a REST API
+- Features a client side, regex based search
+- Features client side pagination of data
+- Features client side sorting of data - Based on Title and Date
 
 ## Getting Started
 
 ### Prerequisites
 
-- node.v10
+- node v10
 - yarn
 
 ### Setup
