@@ -32,7 +32,7 @@ const Meta: React.FC<MetaProps> = ({ title, description, author, url }) => (
 		<link rel="manifest" href="/manifest.json" />
 
 		<meta name="msapplication-TileColor" content="#603cba" />
-		<meta name="theme-color" content="#ffffff" />
+		<meta name="theme-color" content="#603cba" />
 	</Head>
 );
 
