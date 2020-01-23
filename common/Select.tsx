@@ -9,6 +9,9 @@ import colors from '../util/colors';
 type SelectOption = { value: string; label: string };
 
 type SelectProps = {
+	id: string;
+	name: string;
+	label: string;
 	value: string;
 	options: SelectOption[];
 	placeholder: string;
@@ -16,7 +19,16 @@ type SelectProps = {
 	onChange: Function;
 };
 
-const Select: React.FC<SelectProps> = ({ value, options, placeholder, icon, onChange }) => {
+const Select: React.FC<SelectProps> = ({
+	id,
+	name,
+	label,
+	value,
+	options,
+	placeholder,
+	icon,
+	onChange,
+}) => {
 	const [searchString, setSearchString] = useState('');
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -45,6 +57,9 @@ const Select: React.FC<SelectProps> = ({ value, options, placeholder, icon, onCh
 		<Container ref={selectRef}>
 			<Input
 				type="text"
+				id={id}
+				name={name}
+				label={label}
 				value={isOpen ? searchString : selectedValue}
 				placeholder={isOpen ? selectedValue : placeholder}
 				onChange={handleInputChange}

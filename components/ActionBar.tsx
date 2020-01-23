@@ -25,13 +25,19 @@ const ActionBar = () => {
 		<Container>
 			<Content>
 				<Input
+					id="search"
+					name="search"
 					type="text"
+					label="Search"
 					value={searchString}
 					onChange={(e) => dispatch(handleSearch(e.target.value))}
 					placeholder="Type and Search..."
 					icon="/images/search.svg"
 				/>
 				<Select
+					id="sort"
+					name="sort"
+					label="Sort"
 					value={sortValue}
 					onChange={(v) => dispatch(handleSorting(v))}
 					placeholder="Sort By..."

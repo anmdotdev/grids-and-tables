@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import colors from '../util/colors';
 
 type InputProps = {
+	id: string;
+	name: string;
 	type: string;
+	label: string;
 	value: string;
 	placeholder: string;
 	icon?: string;
@@ -12,15 +15,20 @@ type InputProps = {
 	onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
 };
 
-const Input: React.FC<InputProps> = ({ icon, ...props }) => (
+const Input: React.FC<InputProps> = ({ id, label, icon, ...props }) => (
 	<Container>
-		<InputField {...props} />
+		<Label htmlFor={id}>{label}</Label>
+		<InputField id={id} {...props} />
 		{icon && <Icon src={icon} aria-hidden="true" />}
 	</Container>
 );
 
 const Container = styled.div`
 	position: relative;
+`;
+
+const Label = styled.label`
+	display: none;
 `;
 
 const InputField = styled.input`
