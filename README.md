@@ -2,6 +2,12 @@
 
 A responsive grids and tables web application, built using React, TypeScript, NextJS, Redux, and Styled Components. 🚀 https://grids-and-tables.now.sh
 
+<p align="center">
+<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/app-screenshot.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
+<p>
+
+## Features
+
 - 📱 **Responsive** - Works on mobile, tablets and desktops.
 - ✨ **Server Side rendering** of data fetched from a REST API.
 - 📙 Features a client side, regex based **search.**
@@ -17,14 +23,14 @@ A responsive grids and tables web application, built using React, TypeScript, Ne
 ## Perfect Lighthouse Score! 🚀 ⚛️ 
 
 <p align="center">
-<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/google-audit.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
+<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/google-audit.png" alt="Grids and Tables - Lighthouse Audit - Perfect Score!" title="Grids and Tables - Lighthouse Audit - Perfect Score!"></a>
 <p>
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node 10
+- Node 10+
 - Yarn
 
 ### Setup
