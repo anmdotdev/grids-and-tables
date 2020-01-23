@@ -12,8 +12,8 @@ A responsive grids and tables app built using React, Redux, NextJS and Styled Co
 
 ### Prerequisites
 
-- node v10
-- yarn
+- Node 10
+- Yarn
 
 ### Setup
 
