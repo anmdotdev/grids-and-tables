@@ -17,10 +17,6 @@ A responsive grids and tables web application, built using React, TypeScript, Ne
 - 🚀 **Continous Deployment** with [Now.sh](http://now.sh/)
 - 📜 Written in **TypeScript.**
 
-<p align="center">
-<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/app-screenshot.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
-</p>
-
 ## Perfect Lighthouse Score! 🚀 ⚛️ 
 
 <p align="center">
@@ -47,6 +43,10 @@ npm run dev || yarn dev
 ```
 
 App runs on [http://localhost:3000](http://localhost:3000)
+
+<p align="center">
+<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/app-screenshot.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
+</p>
 
 ### For Running a Production Ready Build
 
