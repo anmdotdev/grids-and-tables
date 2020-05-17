@@ -10,10 +10,5 @@
 			}
 		}
 	],
-	"builds": [
-		{
-			"src": "next.config.js",
-			"use": "@now/next"
-		}
-	]
+	"builds": [{ "src": "next.config.js", "use": "@now/next" }]
 }
