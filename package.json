@@ -14,7 +14,7 @@
 		"start-static": "serve out"
 	},
 	"dependencies": {
-		"axios": "0.19.2",
+		"axios": "0.21.1",
 		"dayjs": "1.8.27",
 		"next": "9.4.1",
 		"next-offline": "^5.0.2",
