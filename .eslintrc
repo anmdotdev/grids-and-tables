@@ -5,12 +5,13 @@
 		"sourceType": "module"
 	},
 	"plugins": ["@typescript-eslint", "react", "jsx-a11y", "import", "react-hooks"],
-	"extends": ["airbnb", "plugin:prettier/recommended", "prettier/react", "prettier/standard"],
+	"extends": ["airbnb", "plugin:prettier/recommended"],
 	"env": { "browser": true },
 	"rules": {
 		"@typescript-eslint/indent": ["warn", "tab", { "SwitchCase": 1 }],
 		"@typescript-eslint/no-explicit-any": "off",
 		"indent": ["warn", "tab", { "SwitchCase": 1 }],
+		"no-use-before-define": "off",
 		"class-methods-use-this": "off",
 		"prettier/prettier": "error",
 		"no-underscore-dangle": "off",
@@ -26,14 +27,15 @@
 		"react/jsx-props-no-spreading": "off",
 		"react/jsx-indent": ["error", "tab"],
 		"react/jsx-indent-props": ["error", "tab"],
-		"react/no-array-index-key": "warn",
+		"react/no-array-index-key": "off",
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
 		"react/static-property-placement": "off",
 		"react/prop-types": "off",
 		"jsx-a11y/mouse-events-have-key-events": "off",
 		"jsx-a11y/media-has-caption": "off",
-		"jsx-a11y/anchor-is-valid": "off"
+		"jsx-a11y/anchor-is-valid": "off",
+		"react/react-in-jsx-scope": "off"
 	},
 	"settings": {
 		"import/extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],

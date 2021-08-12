@@ -11,7 +11,7 @@ import Table from '../components/Table';
 import { getCards, handleSearch, handleSorting } from '../store/cards/actions';
 
 const Home = () => {
-	const { currentData } = useSelector((state) => state.cards);
+	const { currentData } = useSelector((state: any) => state.cards);
 	const dispatch = useDispatch();
 
 	useEffect(() => {

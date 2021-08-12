@@ -122,13 +122,13 @@ const Group = styled.div`
 type ImageProps = { src?: string };
 
 const Image = styled.div`
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 
-  background-image: url('${({ src }: ImageProps) => src || ''}');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+	background-image: url('${({ src }: ImageProps) => src || ''}');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 `;
 
 export default Table;

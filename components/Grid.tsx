@@ -22,7 +22,7 @@ type GridProps = {
 };
 
 const Grid: React.FC<GridProps> = ({ data }) => {
-	const { page, total } = useSelector((state) => state.cards);
+	const { page, total } = useSelector((state: any) => state.cards);
 	const dispatch = useDispatch();
 
 	return (

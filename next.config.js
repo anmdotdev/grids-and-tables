@@ -1,29 +1,27 @@
-const withOffline = require('next-offline');
+const withOffline = require('next-offline')
 
-const nextConfig = {
-	target: 'serverless',
-	transformManifest: (manifest) => ['/'].concat(manifest),
-	generateInDevMode: true,
-	workboxOpts: {
-		swDest: 'static/service-worker.js',
-		runtimeCaching: [
-			{
-				urlPattern: /^https?.*/,
-				handler: 'NetworkFirst',
-				options: {
-					cacheName: 'https-calls',
-					networkTimeoutSeconds: 15,
-					expiration: {
-						maxEntries: 150,
-						maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
-					},
-					cacheableResponse: {
-						statuses: [0, 200],
-					},
-				},
-			},
-		],
-	},
-};
-
-module.exports = withOffline(nextConfig);
+module.exports = withOffline({
+  workboxOpts: {
+    swDest: 'static/service-worker.js',
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxEntries: 200,
+          },
+        },
+      },
+    ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/service-worker.js',
+        destination: '/_next/static/service-worker.js',
+      },
+    ]
+  },
+})

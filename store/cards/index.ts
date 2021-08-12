@@ -160,7 +160,7 @@ const handlePageChange = (state, action) => {
 	};
 };
 
-export default (state = initialState, action) => {
+const cardReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case apiTypes.GET_CARDS:
 			return getCards(state, action);
@@ -181,3 +181,5 @@ export default (state = initialState, action) => {
 			return state;
 	}
 };
+
+export default cardReducer;

@@ -5,7 +5,7 @@ const initialState = {
 	pathname: '',
 };
 
-export default (state = initialState, action) => {
+const routeReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case syncTypes.SET_STORE_STATE:
 			return { ...state, ...action.data };
@@ -13,3 +13,5 @@ export default (state = initialState, action) => {
 			return state;
 	}
 };
+
+export default routeReducer;

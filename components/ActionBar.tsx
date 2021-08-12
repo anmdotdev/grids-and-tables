@@ -18,7 +18,7 @@ const sortOptions = [
 ];
 
 const ActionBar = () => {
-	const { searchString, sortValue } = useSelector((state) => state.cards);
+	const { searchString, sortValue } = useSelector((state: any) => state.cards);
 	const dispatch = useDispatch();
 
 	return (
