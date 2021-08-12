@@ -1,7 +1,7 @@
 # Grids and Tables - Responsive App
 A responsive grids and tables web application, built using React, TypeScript, NextJS, Redux, and Styled Components. 
 
-🚀 https://grids-and-tables.now.sh
+🚀 https://grids-and-tables.anm.dev/
 
 ## Features
 
@@ -20,7 +20,7 @@ A responsive grids and tables web application, built using React, TypeScript, Ne
 ## Perfect Lighthouse Score! 🚀 ⚛️ 
 
 <p align="center">
-<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/google-audit.png" alt="Grids and Tables - Lighthouse Audit - Perfect Score!" title="Grids and Tables - Lighthouse Audit - Perfect Score!"></a>
+<a href="https://grids-and-tables.anm.dev/" target="_blank"><img src="public/images/google-audit.png" alt="Grids and Tables - Lighthouse Audit - Perfect Score!" title="Grids and Tables - Lighthouse Audit - Perfect Score!"></a>
 <p>
 
 ## Getting Started
@@ -45,7 +45,7 @@ npm run dev || yarn dev
 App runs on [http://localhost:3000](http://localhost:3000)
 
 <p align="center">
-<a href="https://grids-and-tables.now.sh" target="_blank"><img src="public/images/app-screenshot.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
+<a href="https://grids-and-tables.anm.dev/" target="_blank"><img src="public/images/app-screenshot.png" alt="Grids and Tables - Preview" title="Grids and Tables - Preview"></a>
 </p>
 
 ### For Running a Production Ready Build
